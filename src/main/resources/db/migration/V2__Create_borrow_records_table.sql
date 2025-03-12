@@ -1,0 +1,8 @@
+CREATE TABLE borrow_records (
+    id BIGSERIAL PRIMARY KEY,
+    book_id BIGINT NOT NULL,
+    borrowed_by VARCHAR(255) NOT NULL,
+    borrow_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    return_date TIMESTAMP NULL,
+    CONSTRAINT fk_book FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE
+);
