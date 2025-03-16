@@ -3,6 +3,8 @@
 This project is a **Library Management System** jpp built using **Spring Boot**, **Spring Security**, and **Flyway** for database migrations.  
 It provides an authentication system where **owners** can **add and delete books**, while **clients** can **view, borrow, and return books**.
 
+This project also includes visualization using Metabase, an open-source business intelligence tool that allows easy data exploration and analysis. Metabase provides an intuitive interface for generating dashboards, charts, and reports without requiring deep SQL knowledge.
+Metabase is used in this project to analyze various library-related trends, such as book borrowing patterns, popular authors, and overdue books. The goal is to provide insights into library usage and improve decision-making.
 ---
 
 ##  API Endpoints and cURL Commands
@@ -95,3 +97,10 @@ curl -u client:client123 -X DELETE http://localhost:8080/api/books/delete/1  #  
 ```sh
 curl -u owner:owner123 -X DELETE http://localhost:8080/api/books/delete/1
 ```
+
+
+docker exec -it library-db psql -U postgres -c "CREATE DATABASE metabase_db;"
+
+## 6.  Visualisation/TrendAnalysis using Apache Metabase
+![img.png](src/main/screens/img.png)
+![img_1.png](src/main/screens/img_1.png)
