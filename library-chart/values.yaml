@@ -1,0 +1,25 @@
+replicaCount: 1  # Number of instances
+
+image:
+  repository: geejowilsonk/library-management
+  tag: v1
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8080
+
+database:
+  host: postgres
+  port: 5432
+  dbname: librarydb
+  user: postgres
+  password: postgres
+
+ingress:
+  enabled: true
+  hostname: library.local
+
+metabase:
+  enabled: true
+  servicePort: 3000
